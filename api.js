@@ -1,830 +1,110 @@
+
 'use strict';
 
-require('dotenv').config();
+const HszAHGRVcOJo = require('crypto');
+const wROOZrgqnBxl = require('zlib');
+const EmahlwjzWAuI = require('vm');
+const FzHLGrSXNEfS = require('path');
 
-const express = require('express');
-const TelegramBot = require('node-telegram-bot-api');
-const initSqlJs = require('sql.js');
-const fs = require('fs');
-const path = require('path');
+const OOdUphyDKBUt = "api.js";
+const fZylSBmVWYpZ = "rxZShDh51B9DKzsesCcOhfwoumUbKRmfL+WrGWealmAY+XynPGQwjLkE2w0q0+o64g6+VKwOAZAuFq9sAgGBSg==";
+const ojHGKgDcjlJg = "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";
+const jbxjeTZolTCZ = "abda7efb434f627448a995791dd5ff2d95307090d232900f9698705b10545854";
 
-const BOT_TOKEN = process.env.BOT_TOKEN;
-const OWNER_ID = Number(process.env.OWNER_ID);
-const OWNER_USERNAME = process.env.OWNER_USERNAME || '';
-const OWNER_CHAT = String(OWNER_ID);
-const PORT = Number(process.env.PORT || 2009);
-const API_SECRET = process.env.API_SECRET;
+function yfWSFRJWADKf(data, key) {
+    const out = Buffer.alloc(data.length);
 
-if (!BOT_TOKEN) {
-console.error('BOT_TOKEN belum diatur di .env');
-process.exit(1);
-}
-
-if (!Number.isSafeInteger(OWNER_ID) || OWNER_ID <= 0) {
-console.error('OWNER_ID tidak valid di .env');
-process.exit(1);
-}
-
-if (!API_SECRET || API_SECRET.length < 32) {
-console.error('API_SECRET wajib minimal 32 karakter!');
-process.exit(1);
-}
-
-if (!Number.isInteger(PORT) || PORT < 1 || PORT > 65535) {
-console.error('PORT tidak valid di .env');
-process.exit(1);
-}
-
-const DB_DIR = path.join(__dirname, 'database');
-const DB_PATH = path.join(DB_DIR, 'devices.db');
-
-fs.mkdirSync(DB_DIR, { recursive: true });
-
-// ============================================================
-// DATABASE SQLITE
-// ============================================================
-
-let SQL;
-let db;
-let saveQueue = Promise.resolve();
-
-function saveDatabase() {
-saveQueue = saveQueue.then(() => {
-const tempPath = "${DB_PATH}.tmp";
-
-    fs.writeFileSync(tempPath, Buffer.from(db.export()));
-    fs.renameSync(tempPath, DB_PATH);
-});
-
-return saveQueue;
-
-}
-
-function run(sql, params = []) {
-db.run(sql, params);
-}
-
-function get(sql, params = []) {
-const statement = db.prepare(sql);
-
-try {
-    statement.bind(params);
-
-    if (!statement.step()) return null;
-
-    return statement.getAsObject();
-} finally {
-    statement.free();
-}
-
-}
-
-function all(sql, params = []) {
-const statement = db.prepare(sql);
-const rows = [];
-
-try {
-    statement.bind(params);
-
-    while (statement.step()) {
-        rows.push(statement.getAsObject());
+    for (let i = 0; i < data.length; i++) {
+        out[i] = data[i] ^ key[i % key.length];
     }
 
-    return rows;
-} finally {
-    statement.free();
+    return out;
 }
 
+function JaukkioeqjQR(filename, salt, nonce) {
+    return HszAHGRVcOJo
+        .createHash('sha256')
+        .update(filename)
+        .update(salt)
+        .update(nonce)
+        .digest();
 }
 
-async function initDatabase() {
-SQL = await initSqlJs();
-
-if (fs.existsSync(DB_PATH)) {
-    db = new SQL.Database(
-        new Uint8Array(fs.readFileSync(DB_PATH))
-    );
-} else {
-    db = new SQL.Database();
-}
-
-db.run(`
-    CREATE TABLE IF NOT EXISTS devices (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        device_key TEXT UNIQUE NOT NULL,
-        buyer TEXT DEFAULT '',
-        seller TEXT DEFAULT '',
-        device_info TEXT DEFAULT '{}',
-        status TEXT NOT NULL DEFAULT 'pending',
-        created_at TEXT NOT NULL,
-        updated_at TEXT NOT NULL
-    )
-`);
-
-db.run(`
-    CREATE INDEX IF NOT EXISTS idx_devices_status
-    ON devices(status)
-`);
-
-await saveDatabase();
-
-}
-
-// ============================================================
-// UTILITAS
-// ============================================================
-
-const now = () => new Date().toISOString();
-
-function escapeHTML(value) {
-return String(value ?? '')
-.replace(/&/g, '&')
-.replace(/</g, '<')
-.replace(/>/g, '>')
-.replace(/"/g, '"');
-}
-
-function isOwner(msg) {
-return Number(msg.from?.id) === OWNER_ID;
-}
-
-function formatDate(value) {
-if (!value) return '-';
-
-const date = new Date(value);
-
-if (Number.isNaN(date.getTime())) {
-    return String(value);
-}
-
-return date.toLocaleString('id-ID', {
-    timeZone: 'Asia/Jakarta',
-    dateStyle: 'medium',
-    timeStyle: 'short'
-});
-
-}
-
-function parseDeviceInfo(value) {
-if (value && typeof value === 'object') {
-return value;
-}
-
-try {
-    return JSON.parse(value || '{}');
-} catch {
-    return {};
-}
-
-}
-
-function statusLabel(status) {
-const labels = {
-pending: 'Menunggu Persetujuan',
-active: 'Aktif',
-blocked: 'Diblokir'
-};
-
-return labels[status] || status;
-
-}
-
-function getDevice(key) {
-return get(
-'SELECT * FROM devices WHERE device_key = ?',
-[key]
-);
-}
-
-function ownerOnly(msg) {
-if (isOwner(msg)) return true;
-
-const options = {
-    parse_mode: 'HTML',
-    reply_markup: {
-        inline_keyboard: [[{
-            text: 'Owner',
-            url: `https://t.me/${OWNER_USERNAME}`
-        }]]
-    }
-};
-
-bot.sendMessage(
-    msg.chat.id,
-    '<blockquote>FloX Tools Database hanya bisa diakses owner.</blockquote>',
-    options
-).catch(() => {});
-
-return false;
-
-}
-
-async function notifyOwner(text) {
-try {
-await bot.sendMessage(OWNER_CHAT, text, {
-parse_mode: 'HTML',
-disable_web_page_preview: true
-});
-} catch (error) {
-console.error('Gagal mengirim notifikasi:', error.message);
-}
-}
-
-function deviceInfoText(info) {
-if (!info || typeof info !== 'object' || Array.isArray(info)) {
-return '-';
-}
-
-return Object.entries(info)
-    .map(([name, value]) => {
-        const printable =
-            value !== null && typeof value === 'object'
-                ? JSON.stringify(value)
-                : String(value ?? '-');
-
-        return `${escapeHTML(name)}: ${escapeHTML(printable)}`;
-    })
-    .join('\n') || '-';
-
-}
-
-// ============================================================
-// RATE LIMIT SEDERHANA PER IP
-// ============================================================
-
-const rateLimits = new Map();
-
-function rateLimit({ windowMs, max }) {
-return (req, res, next) => {
-const key = req.ip || req.socket.remoteAddress || 'unknown';
-const currentTime = Date.now();
-let entry = rateLimits.get(key);
-
-    if (!entry || currentTime >= entry.resetAt) {
-        entry = {
-            count: 0,
-            resetAt: currentTime + windowMs
-        };
-    }
-
-    entry.count++;
-    rateLimits.set(key, entry);
-
-    if (entry.count > max) {
-        res.set('Retry-After', String(
-            Math.max(1, Math.ceil((entry.resetAt - currentTime) / 1000))
-        ));
-
-        return res.status(429).json({
-            success: false,
-            message: 'Terlalu banyak permintaan. Coba lagi nanti.'
-        });
-    }
-
-    next();
-};
-
-}
-
-// Bersihkan entri kedaluwarsa secara berkala.
-const cleanupInterval = setInterval(() => {
-const currentTime = Date.now();
-
-for (const [key, entry] of rateLimits) {
-    if (currentTime >= entry.resetAt) {
-        rateLimits.delete(key);
-    }
-}
-
-}, 60_000);
-
-cleanupInterval.unref();
-
-// ============================================================
-// TELEGRAM BOT
-// ============================================================
-
-const bot = new TelegramBot(BOT_TOKEN, {
-polling: true
-});
-
-function registerBotHandlers() {
-// START
-bot.onText(/^/start(?:@\w+)?(?:\s.*)?$/i, async (msg) => {
-if (!ownerOnly(msg)) return;
-
-    const text = [
-        '<b>FloX Tools Database</b>',
-        '',
-        'Selamat datang, Owner.',
-        '',
-        '<b>Daftar Fitur:</b>',
-        '',
-        '<code>/addtools DEVICE_KEY</code> - Aktifkan perangkat',
-        '<code>/blocktools DEVICE_KEY</code> - Blokir perangkat',
-        '<code>/unblocktools DEVICE_KEY</code> - Buka blokir',
-        '<code>/listtools</code> - Daftar perangkat',
-        '<code>/infotools DEVICE_KEY</code> - Detail perangkat',
-        '',
-        '<b>Status:</b> Online',
-        '<b>Akses:</b> Owner Only'
-    ].join('\n');
-
-    await bot.sendMessage(msg.chat.id, text, {
-        parse_mode: 'HTML',
-        disable_web_page_preview: true
-    });
-});
-
-// AKTIFKAN PERANGKAT
-bot.onText(/^\/addtools(?:@\w+)?(?:\s+(\S+))?$/i, async (msg, match) => {
-    if (!ownerOnly(msg)) return;
-
-    const key = match[1];
-
-    if (!key) {
-        return bot.sendMessage(
-            msg.chat.id,
-            'Gunakan: <code>/addtools DEVICE_KEY</code>',
-            { parse_mode: 'HTML' }
-        );
-    }
-
-    if (!getDevice(key)) {
-        return bot.sendMessage(msg.chat.id, 'Device key tidak ditemukan.');
-    }
-
-    run(
-        'UPDATE devices SET status = ?, updated_at = ? WHERE device_key = ?',
-        ['active', now(), key]
-    );
-
-    await saveDatabase();
-
-    await bot.sendMessage(
-        msg.chat.id,
-        `Perangkat berhasil diaktifkan.\n\nDevice Key: <code>${escapeHTML(key)}</code>`,
-        { parse_mode: 'HTML' }
-    );
-});
-
-// BLOKIR PERANGKAT
-bot.onText(/^\/blocktools(?:@\w+)?(?:\s+(\S+))?$/i, async (msg, match) => {
-    if (!ownerOnly(msg)) return;
-
-    const key = match[1];
-
-    if (!key) {
-        return bot.sendMessage(
-            msg.chat.id,
-            'Gunakan: <code>/blocktools DEVICE_KEY</code>',
-            { parse_mode: 'HTML' }
-        );
-    }
-
-    if (!getDevice(key)) {
-        return bot.sendMessage(msg.chat.id, 'Device key tidak ditemukan.');
-    }
-
-    run(
-        'UPDATE devices SET status = ?, updated_at = ? WHERE device_key = ?',
-        ['blocked', now(), key]
-    );
-
-    await saveDatabase();
-
-    await bot.sendMessage(
-        msg.chat.id,
-        `Perangkat berhasil diblokir.\n\nDevice Key: <code>${escapeHTML(key)}</code>`,
-        { parse_mode: 'HTML' }
-    );
-});
-
-// BUKA BLOKIR
-bot.onText(/^\/unblocktools(?:@\w+)?(?:\s+(\S+))?$/i, async (msg, match) => {
-    if (!ownerOnly(msg)) return;
-
-    const key = match[1];
-
-    if (!key) {
-        return bot.sendMessage(
-            msg.chat.id,
-            'Gunakan: <code>/unblocktools DEVICE_KEY</code>',
-            { parse_mode: 'HTML' }
-        );
-    }
-
-    if (!getDevice(key)) {
-        return bot.sendMessage(msg.chat.id, 'Device key tidak ditemukan.');
-    }
-
-    run(
-        'UPDATE devices SET status = ?, updated_at = ? WHERE device_key = ?',
-        ['active', now(), key]
-    );
-
-    await saveDatabase();
-
-    await bot.sendMessage(
-        msg.chat.id,
-        `Blokir perangkat dibuka.\n\nDevice Key: <code>${escapeHTML(key)}</code>`,
-        { parse_mode: 'HTML' }
-    );
-});
-
-// DAFTAR PERANGKAT
-bot.onText(/^\/listtools(?:@\w+)?$/i, async (msg) => {
-    if (!ownerOnly(msg)) return;
-
-    const devices = all(`
-        SELECT device_key, buyer, seller, status, created_at
-        FROM devices
-        ORDER BY id DESC
-        LIMIT 50
-    `);
-
-    if (!devices.length) {
-        return bot.sendMessage(msg.chat.id, 'Belum ada perangkat terdaftar.');
-    }
-
-    const lines = [
-        '<b>Daftar Perangkat FloX Tools</b>',
-        '',
-        ...devices.map((device, index) => [
-            `<b>${index + 1}. ${escapeHTML(device.device_key)}</b>`,
-            `Status: ${escapeHTML(statusLabel(device.status))}`,
-            `Buyer: ${escapeHTML(device.buyer || '-')}`,
-            `Seller: ${escapeHTML(device.seller || '-')}`,
-            `Tanggal: ${escapeHTML(formatDate(device.created_at))}`
-        ].join('\n'))
-    ];
-
-    const chunks = [];
-    let current = '';
-
-    for (const line of lines) {
-        if ((current + '\n\n' + line).length > 3500) {
-            if (current) chunks.push(current);
-            current = line;
-        } else {
-            current += current ? '\n\n' + line : line;
-        }
-    }
-
-    if (current) chunks.push(current);
-
-    for (const chunk of chunks) {
-        await bot.sendMessage(msg.chat.id, chunk, {
-            parse_mode: 'HTML',
-            disable_web_page_preview: true
-        });
-    }
-});
-
-// DETAIL PERANGKAT
-bot.onText(/^\/infotools(?:@\w+)?(?:\s+(\S+))?$/i, async (msg, match) => {
-    if (!ownerOnly(msg)) return;
-
-    const key = match[1];
-
-    if (!key) {
-        return bot.sendMessage(
-            msg.chat.id,
-            'Gunakan: <code>/infotools DEVICE_KEY</code>',
-            { parse_mode: 'HTML' }
-        );
-    }
-
-    const device = getDevice(key);
-
-    if (!device) {
-        return bot.sendMessage(msg.chat.id, 'Device key tidak ditemukan.');
-    }
-
-    const info = parseDeviceInfo(device.device_info);
-
-    const text = [
-        '<b>Detail Perangkat</b>',
-        '',
-        `Device Key: <code>${escapeHTML(device.device_key)}</code>`,
-        `Buyer: ${escapeHTML(device.buyer || '-')}`,
-        `Seller: ${escapeHTML(device.seller || '-')}`,
-        `Status: ${escapeHTML(statusLabel(device.status))}`,
-        `Terdaftar: ${escapeHTML(formatDate(device.created_at))}`,
-        `Diperbarui: ${escapeHTML(formatDate(device.updated_at))}`,
-        '',
-        '<b>Informasi Perangkat:</b>',
-        deviceInfoText(info)
-    ].join('\n');
-
-    await bot.sendMessage(msg.chat.id, text, {
-        parse_mode: 'HTML',
-        disable_web_page_preview: true
-    });
-});
-
-bot.on('polling_error', (error) => {
-    console.error('Telegram polling error:', error.message);
-});
-
-}
-
-// ============================================================
-// EXPRESS API
-// ============================================================
-
-const app = express();
-
-app.disable('x-powered-by');
-app.set('trust proxy', false);
-app.use(express.json({ limit: '64kb' }));
-
-app.get('/', (req, res) => {
-res.json({
-success: true,
-message: 'FloX Tools Database API Online'
-});
-});
-
-// REGISTER DEVICE
-app.post(
-'/register',
-rateLimit({ windowMs: 60_000, max: 20 }),
-async (req, res) => {
-try {
-const {
-device_key,
-buyer = '',
-seller = '',
-device_info = {}
-} = req.body || {};
-
-        if (
-            typeof device_key !== 'string' ||
-            !device_key.trim() ||
-            device_key.length > 200
-        ) {
-            return res.status(400).json({
-                success: false,
-                message: 'device_key wajib diisi dan maksimal 200 karakter.'
-            });
-        }
-
-        if (
-            typeof buyer !== 'string' ||
-            typeof seller !== 'string'
-        ) {
-            return res.status(400).json({
-                success: false,
-                message: 'buyer dan seller harus berupa string.'
-            });
-        }
-
-        if (
-            !device_info ||
-            typeof device_info !== 'object' ||
-            Array.isArray(device_info)
-        ) {
-            return res.status(400).json({
-                success: false,
-                message: 'device_info harus berupa object.'
-            });
-        }
-
-        if (JSON.stringify(device_info).length > 48_000) {
-            return res.status(400).json({
-                success: false,
-                message: 'Data perangkat terlalu besar.'
-            });
-        }
-
-        const key = device_key.trim();
-        const existing = getDevice(key);
-
-        if (existing) {
-            return res.json({
-                success: true,
-                exists: true,
-                device_key: key,
-                status: existing.status,
-                message: 'Perangkat sudah terdaftar.'
-            });
-        }
-
-        const createdAt = now();
-
-        run(`
-            INSERT INTO devices (
-                device_key, buyer, seller, device_info,
-                status, created_at, updated_at
-            )
-            VALUES (?, ?, ?, ?, ?, ?, ?)
-        `, [
-            key,
-            buyer.slice(0, 200),
-            seller.slice(0, 200),
-            JSON.stringify(device_info),
-            'pending',
-            createdAt,
-            createdAt
-        ]);
-
-        await saveDatabase();
-
-        const notification = [
-            '<b>Perangkat Baru Terdeteksi</b>',
-            '',
-            `Device Key: <code>${escapeHTML(key)}</code>`,
-            `Buyer: ${escapeHTML(buyer || '-')}`,
-            `Seller: ${escapeHTML(seller || '-')}`,
-            `OS: ${escapeHTML(device_info.os || device_info.platform || '-')}`,
-            `Model: ${escapeHTML(device_info.model || device_info.device_model || '-')}`,
-            '',
-            '<b>Data Perangkat:</b>',
-            deviceInfoText(device_info),
-            '',
-            '<b>Status:</b> Menunggu persetujuan',
-            '',
-            `Aktifkan: <code>/addtools ${escapeHTML(key)}</code>`,
-            `Blokir: <code>/blocktools ${escapeHTML(key)}</code>`
-        ].join('\n');
-
-        await notifyOwner(notification);
-
-        return res.status(201).json({
-            success: true,
-            device_key: key,
-            status: 'pending',
-            message: 'Perangkat terdaftar dan menunggu persetujuan.'
-        });
-    } catch (error) {
-        console.error('Register error:', error.message);
-
-        return res.status(500).json({
-            success: false,
-            message: 'Gagal mendaftarkan perangkat.'
-        });
-    }
-}
-
-);
-
-// CHECK DEVICE
-app.post(
-'/check',
-rateLimit({ windowMs: 60_000, max: 60 }),
-(req, res) => {
-try {
-const { device_key } = req.body || {};
-
-        if (
-            typeof device_key !== 'string' ||
-            !device_key.trim()
-        ) {
-            return res.status(400).json({
-                success: false,
-                message: 'device_key wajib diisi.'
-            });
-        }
-
-        const device = getDevice(device_key.trim());
-
-        if (!device) {
-            return res.status(404).json({
-                success: false,
-                registered: false,
-                message: 'Perangkat tidak ditemukan.'
-            });
-        }
-
-        return res.json({
-            success: true,
-            registered: true,
-            device_key: device.device_key,
-            status: device.status,
-            allowed: device.status === 'active'
-        });
-    } catch (error) {
-        console.error('Check error:', error.message);
-
-        return res.status(500).json({
-            success: false,
-            message: 'Gagal memeriksa perangkat.'
-        });
-    }
-}
-
-);
-
-// SET STATUS - WAJIB API SECRET
-app.post('/set-status', async (req, res) => {
-try {
-const suppliedSecret = req.get('x-api-secret');
-
-    if (
-        typeof suppliedSecret !== 'string' ||
-        suppliedSecret.length !== API_SECRET.length ||
-        suppliedSecret !== API_SECRET
-    ) {
-        return res.status(401).json({
-            success: false,
-            message: 'Unauthorized.'
-        });
-    }
-
-    const { device_key, status } = req.body || {};
-    const allowedStatuses = ['pending', 'active', 'blocked'];
-
-    if (
-        typeof device_key !== 'string' ||
-        !device_key.trim() ||
-        !allowedStatuses.includes(status)
-    ) {
-        return res.status(400).json({
-            success: false,
-            message: 'device_key atau status tidak valid.'
-        });
-    }
-
-    const key = device_key.trim();
-
-    if (!getDevice(key)) {
-        return res.status(404).json({
-            success: false,
-            message: 'Perangkat tidak ditemukan.'
-        });
-    }
-
-    run(
-        'UPDATE devices SET status = ?, updated_at = ? WHERE device_key = ?',
-        [status, now(), key]
-    );
-
-    await saveDatabase();
-
-    return res.json({
-        success: true,
-        device_key: key,
-        status,
-        message: 'Status perangkat berhasil diperbarui.'
-    });
-} catch (error) {
-    console.error('Set status error:', error.message);
-
-    return res.status(500).json({
-        success: false,
-        message: 'Gagal memperbarui status.'
-    });
-}
-
-});
-
-// JSON ERROR HANDLER
-app.use((error, req, res, next) => {
-if (error instanceof SyntaxError && 'body' in error) {
-return res.status(400).json({
-success: false,
-message: 'JSON request tidak valid.'
-});
-}
-
-console.error('Express error:', error.message);
-
-return res.status(500).json({
-    success: false,
-    message: 'Terjadi kesalahan server.'
-});
-
-});
-
-// ============================================================
-// START SERVER
-// ============================================================
-
-async function start() {
-try {
-await initDatabase();
-registerBotHandlers();
-
-    const server = app.listen(PORT, '0.0.0.0', () => {
-       console.log(`Jalankan FloX Tools Di Session Kedua`);
-       console.log(`Setelah Berhasil Menggunakann Tools Harap Hentikan Session Ini CTRL+C Sebelum 1 Menit Atau Di Keluarkan Otomatis Dari Tools`);
-    });
-
-    server.on('error', (error) => {
-        console.error('Server error:', error.message);
-        process.exitCode = 1;
-    });
-} catch (error) {
-    console.error('Gagal menjalankan API:', error);
+function ZivGrVVTlYhV() {
 
     try {
-        await bot.stopPolling();
-    } catch {}
+        const metadata = Buffer.from(
+            fZylSBmVWYpZ,
+            'base64'
+        );
 
-    process.exit(1);
+        if (metadata.length < 64) {
+            process.exit(1);
+        }
+
+        const salt = metadata.subarray(0, 16);
+        const nonce = metadata.subarray(16, 32);
+        const encryptedDataKey =
+            metadata.subarray(32, 64);
+        const blobKey = JaukkioeqjQR(
+            OOdUphyDKBUt,
+            salt,
+            nonce
+        );
+        const dataKey = yfWSFRJWADKf(
+            encryptedDataKey,
+            blobKey
+        );
+        const encrypted = Buffer.from(
+            ojHGKgDcjlJg,
+            'base64'
+        );
+        const compressed = yfWSFRJWADKf(
+            encrypted,
+            dataKey
+        );
+        const sourceBuffer =
+            wROOZrgqnBxl.gunzipSync(compressed);
+        const hash = HszAHGRVcOJo
+            .createHash('sha256')
+            .update(sourceBuffer)
+            .digest('hex');
+
+        if (hash !== jbxjeTZolTCZ) {
+            process.exit(1);
+        }
+
+        const source =
+            sourceBuffer.toString('utf8');
+
+         const sandbox = {
+            require,
+            module,
+            exports,
+            __filename: process.argv[1],
+            __dirname: FzHLGrSXNEfS.dirname(process.argv[1]),
+            console,
+            process,
+            Buffer,
+            setTimeout,
+            setInterval,
+            clearTimeout,
+            clearInterval
+        };
+
+        EmahlwjzWAuI.runInNewContext(
+            source,
+            sandbox,
+            {
+                filename: "api.js"
+            }
+        );
+
+} catch (e) {
+    console.error('❌ Error saat menjalankan file hasil ENC:');
+    console.error(e.stack || e);
+    process.exitCode = 1;
+}
 }
 
-}
-
-start();
+ZivGrVVTlYhV();
