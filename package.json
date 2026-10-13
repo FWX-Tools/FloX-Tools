@@ -1,0 +1,14 @@
+{
+"name": "flox-tools",
+"version": "1.0.0",
+"description": "FloX Tools",
+"main": "api.js",
+"scripts": {
+"start": "node api.js"
+},
+"dependencies": {
+"express": "^5.1.0",
+"node-telegram-bot-api": "^0.66.0",
+"sql.js": "^1.13.0"
+}
+}
