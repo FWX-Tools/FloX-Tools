@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+
 
 // FloX JS Encryptor v1.0
 // Original: api.js
